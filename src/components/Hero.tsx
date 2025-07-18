@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles, Smartphone } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-mobile.jpg";
 
 const Hero = () => {
@@ -48,9 +49,12 @@ const Hero = () => {
               variant="gradient" 
               size="lg" 
               className="text-lg px-8 py-4 h-auto group"
+              asChild
             >
-              Start Building Free
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <Link to="/builder">
+                Start Building Free
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
             </Button>
             <Button 
               variant="glass" 
