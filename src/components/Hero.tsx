@@ -1,36 +1,42 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, MessageSquare, Sparkles, Send } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 const Hero = () => {
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
-  
+  const [userIdea, setUserIdea] = useState("");
+  const navigate = useNavigate();
+
   const exampleMessages = [
     {
       type: "user",
-      content: "Create a fitness tracking app with workout logs and progress charts"
+      content:
+        "Create a fitness tracking app with workout logs and progress charts",
     },
     {
       type: "ai",
-      content: "I'll create a fitness app with workout tracking, progress visualization, and user profiles. Building components now..."
-    },
-    {
-      type: "user", 
-      content: "Build a recipe sharing app with ingredients search"
-    },
-    {
-      type: "ai",
-      content: "Creating a recipe app with search functionality, ingredient lists, and social sharing features..."
+      content:
+        "I'll create a fitness app with workout tracking, progress visualization, and user profiles. Building components now...",
     },
     {
       type: "user",
-      content: "Make a todo app with categories and due dates"
+      content: "Build a recipe sharing app with ingredients search",
     },
     {
-      type: "ai", 
-      content: "Building a task management app with categorization, due date tracking, and priority levels..."
-    }
+      type: "ai",
+      content:
+        "Creating a recipe app with search functionality, ingredient lists, and social sharing features...",
+    },
+    {
+      type: "user",
+      content: "Make a todo app with categories and due dates",
+    },
+    {
+      type: "ai",
+      content:
+        "Building a task management app with categorization, due date tracking, and priority levels...",
+    },
   ];
 
   useEffect(() => {
@@ -39,6 +45,18 @@ const Hero = () => {
     }, 3000);
     return () => clearInterval(interval);
   }, []);
+
+  const handleSendIdea = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (userIdea.trim()) {
+      // Navigate to signin with the user's idea
+      navigate("/signin", { state: { idea: userIdea.trim() } });
+    }
+  };
+
+  const handleExampleClick = (example: string) => {
+    setUserIdea(example);
+  };
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
@@ -58,13 +76,15 @@ const Hero = () => {
               <Sparkles className="w-4 h-4 text-primary" />
               <span>AI-Powered App Development</span>
             </div>
-            
+
             <h1 className="text-4xl md:text-6xl font-bold bg-gradient-primary bg-clip-text text-transparent leading-tight">
               Describe Your App Idea
             </h1>
-            
+
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Just tell us what you want to build in plain English. Our AI will create a complete, functional app with beautiful design and backend integration.
+              Just tell us what you want to build in plain English. Our AI will
+              create a complete, functional app with beautiful design and
+              backend integration.
             </p>
           </div>
 
@@ -78,30 +98,38 @@ const Hero = () => {
                   <span className="font-medium">AI App Builder</span>
                   <div className="ml-auto flex gap-1">
                     <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                    <span className="text-xs text-muted-foreground">Online</span>
+                    <span className="text-xs text-muted-foreground">
+                      Online
+                    </span>
                   </div>
                 </div>
               </div>
 
               {/* Chat Messages */}
               <div className="p-6 space-y-4 min-h-[300px]">
-                {exampleMessages.slice(0, currentMessageIndex + 1).map((message, index) => (
-                  <div
-                    key={index}
-                    className={`flex ${message.type === "user" ? "justify-end" : "justify-start"} animate-fade-in`}
-                  >
+                {exampleMessages
+                  .slice(0, currentMessageIndex + 1)
+                  .map((message, index) => (
                     <div
-                      className={`max-w-[80%] p-3 rounded-lg ${
+                      key={index}
+                      className={`flex ${
                         message.type === "user"
-                          ? "bg-primary text-primary-foreground"
-                          : "bg-muted text-foreground"
-                      }`}
+                          ? "justify-end"
+                          : "justify-start"
+                      } animate-fade-in`}
                     >
-                      <p className="text-sm">{message.content}</p>
+                      <div
+                        className={`max-w-[80%] p-3 rounded-lg ${
+                          message.type === "user"
+                            ? "bg-primary text-primary-foreground"
+                            : "bg-muted text-foreground"
+                        }`}
+                      >
+                        <p className="text-sm">{message.content}</p>
+                      </div>
                     </div>
-                  </div>
-                ))}
-                
+                  ))}
+
                 {/* Typing indicator */}
                 {currentMessageIndex < exampleMessages.length - 1 && (
                   <div className="flex justify-start">
@@ -118,49 +146,66 @@ const Hero = () => {
 
               {/* Chat Input */}
               <div className="border-t border-border p-4">
-                <div className="flex items-center gap-2 p-3 bg-muted/50 rounded-lg">
+                <form
+                  onSubmit={handleSendIdea}
+                  className="flex items-center gap-2 p-3 bg-muted/50 rounded-lg"
+                >
                   <input
                     type="text"
+                    value={userIdea}
+                    onChange={(e) => setUserIdea(e.target.value)}
                     placeholder="Describe your app idea here..."
                     className="flex-1 bg-transparent border-none outline-none text-sm placeholder:text-muted-foreground"
-                    disabled
                   />
-                  <Button size="sm" className="h-8 w-8 p-0">
+                  <Button
+                    type="submit"
+                    size="sm"
+                    className="h-8 w-8 p-0"
+                    disabled={!userIdea.trim()}
+                  >
                     <Send className="w-4 h-4" />
                   </Button>
-                </div>
+                </form>
               </div>
             </div>
           </div>
 
           {/* What You Can Build */}
           <div className="text-center space-y-6">
-            <h2 className="text-2xl font-semibold text-foreground">What can you build?</h2>
+            <h2 className="text-2xl font-semibold text-foreground">
+              What can you build?
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
               <div className="p-4 bg-card border border-border rounded-lg">
                 <h3 className="font-medium text-primary mb-2">Business Apps</h3>
-                <p className="text-sm text-muted-foreground">CRM systems, inventory management, employee portals</p>
+                <p className="text-sm text-muted-foreground">
+                  CRM systems, inventory management, employee portals
+                </p>
               </div>
               <div className="p-4 bg-card border border-border rounded-lg">
                 <h3 className="font-medium text-primary mb-2">Social Apps</h3>
-                <p className="text-sm text-muted-foreground">Communities, messaging, content sharing platforms</p>
+                <p className="text-sm text-muted-foreground">
+                  Communities, messaging, content sharing platforms
+                </p>
               </div>
               <div className="p-4 bg-card border border-border rounded-lg">
                 <h3 className="font-medium text-primary mb-2">Utility Apps</h3>
-                <p className="text-sm text-muted-foreground">Todo lists, calculators, tracking tools, dashboards</p>
+                <p className="text-sm text-muted-foreground">
+                  Todo lists, calculators, tracking tools, dashboards
+                </p>
               </div>
             </div>
           </div>
 
           {/* CTA */}
           <div className="text-center">
-            <Button 
-              variant="gradient" 
-              size="lg" 
+            <Button
+              variant="gradient"
+              size="lg"
               className="text-lg px-8 py-4 h-auto group"
               asChild
             >
-              <Link to="/builder">
+              <Link to="/signin">
                 Start Building Your App
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Smartphone, Github, Twitter } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -40,11 +41,11 @@ const Navigation = () => {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-4">
-            <Button variant="ghost" size="sm">
-              Sign In
+            <Button variant="ghost" size="sm" asChild>
+              <Link to="/signin">Sign In</Link>
             </Button>
-            <Button variant="gradient" size="sm">
-              Get Started
+            <Button variant="gradient" size="sm" asChild>
+              <Link to="/signin">Get Started</Link>
             </Button>
           </div>
 
@@ -76,11 +77,11 @@ const Navigation = () => {
                 </a>
               ))}
               <div className="flex flex-col gap-2 mt-4 pt-4 border-t border-border/50">
-                <Button variant="ghost" size="sm">
-                  Sign In
+                <Button variant="ghost" size="sm" asChild>
+                  <Link to="/signin">Sign In</Link>
                 </Button>
-                <Button variant="gradient" size="sm">
-                  Get Started
+                <Button variant="gradient" size="sm" asChild>
+                  <Link to="/signin">Get Started</Link>
                 </Button>
               </div>
             </div>
