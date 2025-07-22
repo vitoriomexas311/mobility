@@ -15,16 +15,16 @@
     --popover: 240 10% 3.9%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 263 70% 60%;
+    --primary: 217 32% 58%;
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 215 30% 18%;
+    --secondary: 215 25% 20%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 215 30% 18%;
+    --muted: 215 25% 20%;
     --muted-foreground: 217 10% 65%;
 
-    --accent: 217 91% 60%;
+    --accent: 190 45% 55%;
     --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84% 60%;
@@ -32,27 +32,27 @@
 
     --border: 215 30% 18%;
     --input: 215 30% 18%;
-    --ring: 263 70% 60%;
+    --ring: 217 32% 58%;
 
     --radius: 0.75rem;
 
-    /* Custom Mobility Colors */
-    --purple-primary: 263 45% 55%;
-    --purple-light: 270 40% 65%;
-    --blue-primary: 217 75% 58%;
-    --blue-light: 210 80% 68%;
+    /* Custom Elegant Colors */
+    --blue-primary: 217 32% 58%;
+    --blue-light: 220 40% 68%;
+    --teal-primary: 190 45% 55%;
+    --teal-light: 185 50% 65%;
     
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(263 45% 55%), hsl(217 75% 58%));
-    --gradient-subtle: linear-gradient(135deg, hsl(263 45% 55% / 0.1), hsl(217 75% 58% / 0.1));
-    --gradient-glow: linear-gradient(135deg, hsl(263 45% 55% / 0.3), hsl(217 75% 58% / 0.3));
+    --gradient-primary: linear-gradient(135deg, hsl(217 32% 58%), hsl(190 45% 55%));
+    --gradient-subtle: linear-gradient(135deg, hsl(217 32% 58% / 0.1), hsl(190 45% 55% / 0.1));
+    --gradient-glow: linear-gradient(135deg, hsl(217 32% 58% / 0.3), hsl(190 45% 55% / 0.3));
     
     /* Glass Effects */
     --glass-bg: hsl(240 10% 3.9% / 0.8);
     --glass-border: hsl(0 0% 100% / 0.1);
     
     /* Shadows */
-    --shadow-glow: 0 0 40px hsl(263 45% 55% / 0.3);
+    --shadow-glow: 0 0 40px hsl(217 32% 58% / 0.3);
     --shadow-premium: 0 25px 50px -12px hsl(0 0% 0% / 0.25);
     
     /* Animations */

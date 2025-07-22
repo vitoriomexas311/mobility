@@ -62,10 +62,10 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				'purple-primary': 'hsl(var(--purple-primary))',
-				'purple-light': 'hsl(var(--purple-light))',
 				'blue-primary': 'hsl(var(--blue-primary))',
-				'blue-light': 'hsl(var(--blue-light))'
+				'blue-light': 'hsl(var(--blue-light))',
+				'teal-primary': 'hsl(var(--teal-primary))',
+				'teal-light': 'hsl(var(--teal-light))'
 			},
 			backgroundImage: {
 				'gradient-primary': 'var(--gradient-primary)',
@@ -130,10 +130,10 @@ export default {
 				},
 				'glow-pulse': {
 					'0%, 100%': {
-						boxShadow: '0 0 20px hsl(var(--purple-primary) / 0.3)'
+						boxShadow: '0 0 20px hsl(var(--blue-primary) / 0.3)'
 					},
 					'50%': {
-						boxShadow: '0 0 40px hsl(var(--purple-primary) / 0.6)'
+						boxShadow: '0 0 40px hsl(var(--blue-primary) / 0.6)'
 					}
 				}
 			}

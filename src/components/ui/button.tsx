@@ -20,7 +20,7 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
         gradient: "bg-gradient-primary text-white hover:opacity-90 shadow-glow hover:shadow-premium transition-all duration-300",
         glass: "bg-background/10 border border-white/20 text-white backdrop-blur-glass hover:bg-background/20 transition-all duration-300",
-        glow: "bg-purple-primary text-white hover:bg-purple-light shadow-glow hover:shadow-premium animate-glow-pulse",
+        glow: "bg-blue-primary text-white hover:bg-blue-light shadow-glow hover:shadow-premium animate-glow-pulse",
       },
       size: {
         default: "h-10 px-4 py-2",
