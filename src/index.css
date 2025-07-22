@@ -37,22 +37,22 @@
     --radius: 0.75rem;
 
     /* Custom Mobility Colors */
-    --purple-primary: 263 70% 60%;
-    --purple-light: 270 60% 70%;
-    --blue-primary: 217 91% 60%;
-    --blue-light: 210 100% 70%;
+    --purple-primary: 263 45% 55%;
+    --purple-light: 270 40% 65%;
+    --blue-primary: 217 75% 58%;
+    --blue-light: 210 80% 68%;
     
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(263 70% 60%), hsl(217 91% 60%));
-    --gradient-subtle: linear-gradient(135deg, hsl(263 70% 60% / 0.1), hsl(217 91% 60% / 0.1));
-    --gradient-glow: linear-gradient(135deg, hsl(263 70% 60% / 0.3), hsl(217 91% 60% / 0.3));
+    --gradient-primary: linear-gradient(135deg, hsl(263 45% 55%), hsl(217 75% 58%));
+    --gradient-subtle: linear-gradient(135deg, hsl(263 45% 55% / 0.1), hsl(217 75% 58% / 0.1));
+    --gradient-glow: linear-gradient(135deg, hsl(263 45% 55% / 0.3), hsl(217 75% 58% / 0.3));
     
     /* Glass Effects */
     --glass-bg: hsl(240 10% 3.9% / 0.8);
     --glass-border: hsl(0 0% 100% / 0.1);
     
     /* Shadows */
-    --shadow-glow: 0 0 40px hsl(263 70% 60% / 0.3);
+    --shadow-glow: 0 0 40px hsl(263 45% 55% / 0.3);
     --shadow-premium: 0 25px 50px -12px hsl(0 0% 0% / 0.25);
     
     /* Animations */
